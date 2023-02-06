@@ -12,4 +12,19 @@ body {
   font-size: 2rem;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #6096B4, #93BFCF);
+}
+
+.cookie {
+  width: 40rem;
+  background: #A27B5C;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
 /*# sourceMappingURL=syle.css.map */
