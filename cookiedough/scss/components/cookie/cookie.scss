@@ -3,4 +3,54 @@
     background: #A27B5C;
     border-radius: 50%;
     aspect-ratio: 1/1;
+    position: relative;
+    overflow: hidden;
+    border: 0.5rem solid #4B2B30;
+
+    &__spots{
+        width: 7rem;
+        aspect-ratio: 1/1;
+        background: #4B2B30;
+        border-radius: 45%;
+        position: absolute;
+
+        &--first{
+            top: 10%;
+            left: 5%;
+        }
+
+        &--second{
+            right: 10%;
+            top: 5%;
+            
+        }
+
+        &--third{
+            right: 5%;
+            bottom: 10%;
+            
+        }
+
+        &--fourth{
+            left:5%;
+            bottom: 10%;
+        }
+
+        &--fifth{
+            left:40%;
+            bottom: 20%;
+        }
+
+        &--sixth{
+            right:30%;
+            bottom: 50%;
+        }
+
+        &--seventh{
+            left:15%;
+            bottom: 40%;
+        }
+
+    }
 }
+

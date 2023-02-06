@@ -25,6 +25,44 @@ body {
   background: #A27B5C;
   border-radius: 50%;
   aspect-ratio: 1/1;
+  position: relative;
+  overflow: hidden;
+  border: 0.5rem solid #4B2B30;
+}
+.cookie__spots {
+  width: 7rem;
+  aspect-ratio: 1/1;
+  background: #4B2B30;
+  border-radius: 45%;
+  position: absolute;
+}
+.cookie__spots--first {
+  top: 10%;
+  left: 5%;
+}
+.cookie__spots--second {
+  right: 10%;
+  top: 5%;
+}
+.cookie__spots--third {
+  right: 5%;
+  bottom: 10%;
+}
+.cookie__spots--fourth {
+  left: 5%;
+  bottom: 10%;
+}
+.cookie__spots--fifth {
+  left: 40%;
+  bottom: 20%;
+}
+.cookie__spots--sixth {
+  right: 30%;
+  bottom: 50%;
+}
+.cookie__spots--seventh {
+  left: 15%;
+  bottom: 40%;
 }
 
 /*# sourceMappingURL=syle.css.map */
