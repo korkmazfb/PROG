@@ -1,7 +1,24 @@
+@use "./abstracts/colors";
+
+
 body{
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #6096B4,#93BFCF);
+    font-family: 'Open Sans', sans-serif;
+    color: map-get(colors.$cookie,"spots" );
+    padding: 4rem;
+}
+
+.main{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(to bottom right, #6096B4,#93BFCF);
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.buttonandavatarWrapper{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
 }
