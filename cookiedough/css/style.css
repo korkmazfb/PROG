@@ -41,7 +41,7 @@ body {
 }
 
 .cookie {
-  width: 40rem;
+  width: 30rem;
   background: #CA965C;
   border-radius: 50%;
   aspect-ratio: 1/1;
@@ -57,8 +57,26 @@ body {
 .cookie:active {
   transform: scale(0.95);
 }
+.cookie--chocolate {
+  background: #3C2A21;
+  box-shadow: 0 2rem 1rem 0rem rgba(0, 0, 0, 0.2);
+  border: 1rem solid #1C0A00;
+}
+.cookie--chocolate .cookie__spots {
+  background: #1C0A00;
+  border-radius: 20%;
+}
+.cookie--red {
+  background: #EB455F;
+  box-shadow: 0 2rem 1rem 0rem rgba(0, 0, 0, 0.2);
+  border: 1rem solid #FCFFE7;
+}
+.cookie--red .cookie__spots {
+  background: #FCFFE7;
+  border-radius: 20%;
+}
 .cookie__spots {
-  width: 7rem;
+  width: 5rem;
   aspect-ratio: 1/1;
   background: #4B2B30;
   border-radius: 45%;
@@ -98,7 +116,6 @@ body {
   display: flex;
   flex-direction: column;
   background: whitesmoke;
-  gap: 2rem;
   width: max-content;
   border-radius: 1rem;
 }
@@ -236,7 +253,7 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   font-weight: 300;
-  width: 50%;
+  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;

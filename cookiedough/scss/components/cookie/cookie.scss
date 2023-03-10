@@ -2,7 +2,7 @@
 
 
 .cookie{
-    width: 40rem;
+    width: 30rem;
     background: map-get(colors.$cookie,"background" );
     border-radius: 50%;
     aspect-ratio: 1/1;
@@ -22,8 +22,31 @@
        transform: scale(0.95);
     }
 
+    &--chocolate{
+        background: #3C2A21;
+        box-shadow: 0 2rem 1rem 0rem rgba(0, 0, 0,0.2);
+        border: 1rem solid #1C0A00;
+    }
+
+    &--chocolate &__spots{
+        background: #1C0A00;
+        border-radius: 20%;
+    }
+
+    &--red{
+        background: #EB455F;
+        box-shadow: 0 2rem 1rem 0rem rgba(0, 0, 0,0.2);
+        border: 1rem solid #FCFFE7;
+        
+    }
+
+    &--red &__spots{
+        background: #FCFFE7;
+        border-radius: 20%;
+    }
+
     &__spots{
-        width: 7rem;
+        width: 5rem;
         aspect-ratio: 1/1;
         background: map-get(colors.$cookie,"spots" );
         border-radius: 45%;
