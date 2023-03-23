@@ -1,0 +1,13 @@
+@use "./colors";
+
+$vhCalc: (
+    "heightofheader": 8rem,
+    "paddingofbody": 4rem,
+);
+
+$box-shadow: 0 0.5rem 0.5rem 0 rgba(0,0,0,0.2);
+
+$font-family: 'Open Sans', sans-serif;
+$gradient: linear-gradient(to bottom right, map-get(colors.$baseColors,"background"), map-get(colors.$baseColors,"backgroundDark"));
+
+$section-width : 40% 60%;

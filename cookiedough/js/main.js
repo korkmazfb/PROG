@@ -104,8 +104,9 @@ class AutoScore {
       this.bought = true;
       sessionStorage.setItem("auto", this.bought);
       this.score.subtractScore();
+      score.onAutoScoreClicked();
     }
-    score.onAutoScoreClicked();
+   
   };
 }
 

@@ -1,0 +1,11 @@
+@use "../abstracts/vars";
+
+@mixin afterstyle{
+    content: "";
+    width: 100%;
+    height: 3%;
+    background: vars.$gradient;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

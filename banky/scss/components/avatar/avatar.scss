@@ -6,15 +6,18 @@
     height: 10rem;
     background-color: map-get(colors.$baseColors, "backgroundDark") ;
     border-radius: 50%;
-    display: grid;
+    display: flex-end;
     position: relative;
     overflow: hidden;
-    border: 0.6rem solid map-get(colors.$cookie,"spots" );
+    border: 0.6rem map-get(colors.$baseColors, "backgroundDark") ;
     cursor: pointer;
-    top: 10rem                  ;
+    top: 10rem ;
+    left: 40rem;
+    top: -0.1rem;
+                   
     
     &__head{
-        background-color: white
+        background-color: white;
 
         width: 40%;
         height: 40%;
@@ -27,7 +30,7 @@
     }
 
     &__body{
-        background-color:map-get(colors.$baseColors, "backgroundDark") ;
+        background-color:map-get(colors.$baseColors, "background") ;
 
         width: 60%;
         height: 60%;
