@@ -1,6 +1,7 @@
 @use "../../abstracts/mixins";
 @use "../../abstracts/vars";
 @use "../../abstracts/colors";
+@use "../../abstracts/animations.scss";
 
 .banky{
     background:map-get(colors.$baseColors, "whitecolor");
@@ -41,6 +42,10 @@
     &__money{
         font-weight: 400;
         font-size: 250%;
+
+        &--blur{
+            @include mixins.blur;
+        }
     }
 
 
@@ -87,6 +92,10 @@
         gap: 2rem;
         height: 50rem;
         overflow-y: scroll;
+
+        &--blur{
+            @include mixins.blur;
+        }
     }
 
     &__transaction{
@@ -96,6 +105,9 @@
         justify-content: space-between;
         position: relative;
         padding-bottom: 0.5rem;
+        @include animations.popupMixin;
+        
+        
 
         &::after{
             @include mixins.afterstyle;
@@ -139,10 +151,11 @@
         flex-direction: column;
         align-items: center;
         gap: 4rem;
+        @include animations.popupMixin;
 
     }
 
-    &__switchaccount, &__eyebutton{
+    &__switchAccount, &__eyebutton{
         background: none;
         border: none;
         
@@ -163,6 +176,10 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        &:hover{
+            cursor: pointer;
+        }
 
     }
         

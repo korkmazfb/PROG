@@ -1,5 +1,6 @@
 @use "../../abstracts/vars";
 @use "../../abstracts/colors";
+@use "../../abstracts/animations.scss";
 
 .header{
     background:map-get(colors.$baseColors, "whitecolor");
@@ -10,6 +11,7 @@
     border-top-right-radius: 5rem;
     max-width: 150rem;
     margin: 0 auto;
+
 
     &__logo{
         display: flex;

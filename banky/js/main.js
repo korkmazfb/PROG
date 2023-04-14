@@ -6,7 +6,6 @@ class GetDataFromApi {
   }
 
   async getData() {
-    console.log("ik haal de data op");
     await fetch(this.url)
       .then(function (response) {
         return response.json();
@@ -28,8 +27,7 @@ class Header {
   avatarHeadElement;
   avatarBodyElement;
   constructor(placeToRenderHeader) {
-    this.placeToRenderHeader =
-      document.getElementsByTagName(placeToRenderHeader)[0];
+    this.placeToRenderHeader =document.getElementsByTagName(placeToRenderHeader)[0];
     this.headerElement = document.createElement("header");
     this.headerElement.classList = "header";
 
@@ -69,15 +67,13 @@ class BankyMain {
   rightSection;
 
   constructor(placeToRenderBankyMain) {
-    this.placeToRenderBankyMain = document.getElementsByTagName(
-      placeToRenderBankyMain
-    );
+    this.placeToRenderBankyMain = document.getElementsByTagName(placeToRenderBankyMain)[0];
 
     this.mainElement = document.createElement("main");
     this.mainElement.classList = "banky";
 
     this.leftSection = new BankyLeftSection(this.mainElement);
-    this.rightSection = new bankyRightSection(this.mainElement);
+    this.rightSection = new bankyRightSection(this.mainElement, this);
   }
 
   makeButtonsFromData(data) {
@@ -85,11 +81,16 @@ class BankyMain {
   }
 
   makeTransactionsFromData(data) {
-    this.leftSection.makeTransactionsFromData("Bankrekening", data);
+    this.leftSection.makeTransactionsFromData(data.items[0].transactions);
+  }
+
+  callFromRightSection(account,data){
+    this.leftSection.makeTransactionsFromData(account.transactions,data);
+    
   }
 
   render() {
-    this.placeToRenderBankyMain[0].appendChild(this.mainElement);
+    this.placeToRenderBankyMain.appendChild(this.mainElement);
     this.leftSection.render();
     this.rightSection.render();
   }
@@ -114,10 +115,10 @@ class BankyLeftSection {
 
     this.bankyLogoText = document.createElement("h1");
     this.bankyLogoText.classList = "banky__money";
-    this.bankyLogoText.innerText = "Saldo 10$";
 
     this.eyeButton = document.createElement("button");
     this.eyeButton.classList = "banky__eyeButton";
+    this.eyeButton.onclick = this.eyeButtonClicked;
 
     this.eyeFigure = document.createElement("figure");
     this.eyeFigure.classList = "banky__eye";
@@ -144,26 +145,37 @@ class BankyLeftSection {
     //  this.transferButton.innerText = "Överboeken";
   }
 
-  makeTransactionsFromData(accountTOShow, data) {
+
+  eyeButtonClicked = () =>{
+    this.transactionsElement.classList.toggle("banky__transactions--blur")
+    this.bankyLogoText.classList.toggle("banky__money--blur");
+  
+
+  }
+
+  makeTransactionsFromData(transactions) {
     let totalMoney = 0;
-    for (let i = 0; i< data[accountTOShow].length; i++){
-      totalMoney += data[accountTOShow][i]["amount"];
+    for (let i = 0; i< transactions.length; i++){
+      totalMoney += transactions[i]["amount"];
     }
 
-    this.bankyLogoText = "Saldo:" + " $" + totalMoney;
+    this.bankyLogoText.innerText = "Saldo:" + " $" + totalMoney;
 
 
-    for (let i = 0; i < data[accountTOShow].length; i++) {
+    this.transactionsElement.innerHTML = "";
+
+
+    for (let i = 0; i < transactions.length; i++) {
       this.transactionElement = document.createElement("li");
       this.transactionElement.classList = "banky__transaction";
 
       this.transactionFrom = document.createElement("h3");
       this.transactionFrom.classList = "banky__name";
-      this.transactionFrom.innerText = data[accountTOShow[i]["from/to"]]
+      this.transactionFrom.innerText = transactions[i]["from/to"];
 
       this.transactionAmount = document.createElement("h3");
       this.transactionAmount.classList = "banky__amount";
-      this.transactionAmount.innerText = data[accountTOShow[i]["amount"]]
+      this.transactionAmount.innerText = transactions[i]["amount"];
 
       
 
@@ -173,10 +185,7 @@ class BankyLeftSection {
 
 
     }
-      this.transferButton = document.createElement("button");
-      this.transferButton.classList = "banky__transferButton";
-      this.transferButton.innerText = "Overboeken";
-      this.leftSectionElement.appendChild(this.transferButton);
+      
 
   }
 
@@ -192,12 +201,19 @@ class BankyLeftSection {
     this.eyeFigure.appendChild(this.eyeI);
     this.leftSectionElement.appendChild(this.transactionsElement);
 
+    this.transferButton = document.createElement("button");
+      this.transferButton.classList = "banky__transferButton";
+      this.transferButton.innerText = "Overboeken";
+      this.leftSectionElement.appendChild(this.transferButton);
+
   }
 }
 class bankyRightSection {
   mainElement;
-  constructor(mainElement) {
+  bankyMain;
+  constructor(mainElement, bankyMain) {
     this.mainElement = mainElement;
+    this.bankyMain = bankyMain   ;
     //right side of the website
 
     this.RightsectionElement = document.createElement("section");
@@ -208,9 +224,13 @@ class bankyRightSection {
   }
 
   makeButtonsFromData(data) {
-    Object.entries(data).forEach((entry) => {
+    data.items.forEach((entry) => {
       this.accountElement = document.createElement("li");
       this.accountElement.classList = "banky__account";
+      this.accountElement.onclick = () => {
+        this.bankyMain.callFromRightSection(entry,data)
+        
+      }
 
       this.accountElement2 = document.createElement("li");
       this.accountElement2.classList = "banky__account";
@@ -228,18 +248,18 @@ class bankyRightSection {
       this.logoElement2.classList = "banky__logo";
 
       this.logoIElement = document.createElement("i");
-      this.logoIElement.classList = "fa-solid fa-house";
+      this.logoIElement.classList = entry.icon;
 
-      this.logoIElement2 = document.createElement("i");
-      this.logoIElement2.classList = "fa-solid fa-briefcase";
+      // this.logoIElement2 = document.createElement("i");
+      // this.logoIElement2.classList = "fa-solid fa-briefcase";
 
       this.nameofaccountElement = document.createElement("h4");
       this.nameofaccountElement.classList = "banky__nameofaccount";
-      this.nameofaccountElement.innerText = entry[0];
+      this.nameofaccountElement.innerText = entry.name;
 
-      this.nameofaccountElement2 = document.createElement("h4");
-      this.nameofaccountElement2.classList = "banky__nameofaccount";
-      this.nameofaccountElement2.innerText = entry[0];
+      // this.nameofaccountElement2 = document.createElement("h4");
+      // this.nameofaccountElement2.classList = "banky__nameofaccount";
+      // this.nameofaccountElement2.innerText = entry[0];
 
       this.accountsElement.appendChild(this.accountElement);
       this.accountElement.appendChild(this.switchaccountElement);
@@ -263,13 +283,15 @@ class App {
   constructor() {
     this.BankyMain = new BankyMain("body");
     this.header = new Header("body");
-    this.app = new BankyMain("body");
-
     this.GetDataFromApi = new GetDataFromApi("./data/transactions.json");
 
-    this.GetDataFromApi.getData().then((data) => {
-      this.BankyMain.makeTransactionsFromData(data);
-      this.BankyMain.makeButtonsFromData(data);
+    // this.app = new BankyMain("body");
+
+
+    this.GetDataFromApi
+      .getData().then((data) => {
+        this.BankyMain.makeTransactionsFromData(data);
+        this.BankyMain.makeButtonsFromData(data);
     });
 
     this.header.render();

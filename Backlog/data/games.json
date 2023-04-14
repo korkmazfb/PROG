@@ -1,0 +1,40 @@
+{
+  "games": [
+    {
+      "title": "GTA V",
+      "platform": "PS5"
+    },
+    {
+      "title": "God Of War",
+      "platform": "PS5"
+    },
+    {
+      "title": "Call Of Duty",
+      "platform": "PS4"
+    },
+    {
+      "title": "Fortnite",
+      "platform": "PS4"
+    },
+    {
+      "title": "Mario Kart",
+      "platform": "Nitendo Switch"
+    },
+    {
+      "title": "Mario 3D",
+      "platform": "Nitendo Switch"
+    },
+    {
+      "title": "Pokemon",
+      "platform": "Nitendo Switch"
+    },
+    {
+      "title": "Valorant",
+      "platform": "PC"
+    },
+    {
+      "title": "Roblox",
+      "platform": "PC"
+    }
+  ]
+}

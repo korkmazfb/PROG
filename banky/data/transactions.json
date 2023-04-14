@@ -1,33 +1,77 @@
 {
-  "Bankrekening": [
-    {
-      "from/to": "jeroen",
-      "amount": 10
-    },
 
-    {
-      "from/to": "dejorden",
-      "amount": 100
-    },
-    {
-      "from/to": "Mert",
-      "amount": -100
-    },
-    {
-      "from/to": "Ahmet",
-      "amount": -20
-    }
-  ],
-  "ZZP-Rekening": [
-    {
-      "from/to": "bedrijf x",
-      "amount": -1000
-    },
+"items" : [
+  {
+    "name" : "bankrekening",
+    "icon": "fa-solid fa-house",
+    "transactions": [
 
-    {
-      "from/to": "bedrijf z",
-      "amount": -500
-    }
-  ]
+      {
+        "from/to": "jeroen",
+        "amount": 1000
+      },
+      {
+        "from/to": "jeroen",
+        "amount": 1000
+      },
   
-}
+      {
+        "from/to": "dejorden",
+        "amount": 100
+      },
+      {
+        "from/to": "Mert",
+        "amount": -100
+      },
+      {
+        "from/to": "Ahmet",
+        "amount": -20
+      },
+      {
+        "from/to": "Ahmet",
+        "amount": -20
+      },
+      {
+        "from/to": "Ahmet",
+        "amount": -20
+      },
+      {
+        "from/to": "Ahmet",
+        "amount": -20
+      },
+      {
+        "from/to": "Ahmet",
+        "amount": -20
+      },
+      {
+        "from/to": "Ahmet",
+        "amount": -20
+      },
+      {
+        "from/to": "Ahmet",
+        "amount": -20
+      }
+    ]
+  },
+  {
+    "name" : "ZZP-Rekening",
+    "icon": "fa-solid fa-briefcase",
+    "transactions": [
+      {
+        "from/to": "bedrijf x",
+        "amount": -1000
+      },
+  
+      {
+        "from/to": "bedrijf z",
+        "amount": -500
+      }]
+
+
+      }]}
+
+  
+
+
+
+
